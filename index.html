@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ثورة الذكاء الاصطناعي في SOLIDWORKS</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/dracula.min.css">
+    
+    <style>
+        :root { --main-blue: #00d4ff; --bg-dark: #1a1a1a; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; }
+        
+        .mindmap-container { 
+            display: flex; flex-direction: column; gap: 15px; 
+            max-width: 900px; margin: 0 auto; padding: 10px;
+        }
+        @media (min-width: 768px) { .mindmap-container { flex-direction: row; justify-content: center; align-items: flex-start; } }
+
+        .branch {
+            background: rgba(255, 255, 255, 0.07);
+            border: 2px solid var(--main-blue);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex: 1;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .branch:active { transform: scale(0.95); background: rgba(0, 212, 255, 0.15); }
+        .branch-title { font-size: 1.1rem; font-weight: bold; color: var(--main-blue); }
+        
+        .sub-nodes {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            text-align: right; font-size: 0.9rem;
+            opacity: 0;
+        }
+        .sub-nodes.active { max-height: 500px; padding-top: 15px; border-top: 1px solid #444; margin-top: 10px; opacity: 1; }
+        .leaf { padding: 8px 0; border-bottom: 1px dashed #333; color: #eee; }
+        .leaf:last-child { border: none; }
+        .highlight { color: #ffcc00; font-weight: bold; }
+
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            max-width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #333;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .pdf-ref-btn {
+            position: fixed; bottom: 30px; left: 30px;
+            background: #ff4757; color: white; padding: 15px 25px;
+            border-radius: 50px; cursor: pointer; font-size: 1rem;
+            z-index: 1000; box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+            border: none; font-family: inherit;
+        }
+        
+        h2, h3, h4 { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .table-style { font-size: 0.6em; width: 100%; border-collapse: collapse; }
+        .table-style th { background: var(--main-blue); color: black; padding: 10px; }
+        .table-style td { padding: 10px; border: 1px solid #444; }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-gradient="linear-gradient(to bottom, #111, #002b36)">
+                <h2 style="color: var(--main-blue); margin-bottom: 0.5em;">ثورة الذكاء الاصطناعي</h2>
+                <h3 style="color: #fff;">في نظام SOLIDWORKS</h3>
+                <p style="opacity: 0.7;">بناء تجربة تفاعلية مبنية على تحليل البيانات والـ AI</p>
+                <div style="margin-top: 50px; font-size: 0.6em; border: 1px solid #444; display: inline-block; padding: 10px 20px; border-radius: 30px;">
+                    اسحب لليسار أو انقر للتنقل
+                </div>
+            </section>
+
+            <!-- Interactive Smart Art Slide -->
+            <section>
+                <h4 style="margin-bottom: 40px;">منظومة الأدوات الذكية (اضغط للاستكشاف)</h4>
+                <div class="mindmap-container">
+                    
+                    <div class="branch" onclick="toggleNode(this)">
+                        <div class="branch-title">المحرك المدمج (Desktop)</div>
+                        <div class="sub-nodes">
+                            <div class="leaf">أدوات الخبراء (Sketch/Mate Expert)</div>
+                            <div class="leaf">أتمتة التجميع (Smart Fasteners)</div>
+                            <div class="leaf highlight">جديد 2025: متنبئ الأوامر الذكي</div>
+                        </div>
+                    </div>
+
+                    <div class="branch" onclick="toggleNode(this)">
+                        <div class="branch-title">السحابة (3DEXPERIENCE)</div>
+                        <div class="sub-nodes">
+                            <div class="leaf">مساعد Aura AI الافتراضي</div>
+                            <div class="leaf">توليد الرسومات آلياً (Beta)</div>
+                            <div class="leaf">البحث الهندسي المتقدم (NetVibes)</div>
+                        </div>
+                    </div>
+
+                    <div class="branch" onclick="toggleNode(this)">
+                        <div class="branch-title">الأتمتة الخارجية</div>
+                        <div class="sub-nodes">
+                            <div class="leaf">برمجة الماكرو عبر LLMs</div>
+                            <div class="leaf">تحويل الصور إلى نماذج 3D</div>
+                            <div class="leaf">الهندسة العكسية المدعومة بـ AI</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Video Content Slide -->
+            <section>
+                <h4 style="margin-bottom: 20px;">تطبيق حي: مستقبل التصميم</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/c1q8yg0LPh3oI3iGF?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <p style="font-size: 0.5em; margin-top: 15px; color: #888;">مصدر البيانات: مخرجات NotebookLM من الروابط المقدمة</p>
+            </section>
+
+            <!-- Comparison Table Slide -->
+            <section>
+                <h4 style="margin-bottom: 30px;">خارطة توفر الأدوات والترخيص</h4>
+                <table class="table-style">
+                    <thead>
+                        <tr>
+                            <th>فئة الأداة</th>
+                            <th>سهولة الوصول</th>
+                            <th>الميزة الأساسية المستهدفة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>الأدوات الخوارزمية (Legacy)</td>
+                            <td>جميع إصدارات Desktop</td>
+                            <td>توقع واجهة المستخدم وحل النزاعات</td>
+                        </tr>
+                        <tr>
+                            <td>الذكاء الاصطناعي الأصيل</td>
+                            <td>إصدار 2025 وما بعده</td>
+                            <td>أتمتة المهام المتكررة (Drafting)</td>
+                        </tr>
+                        <tr>
+                            <td>الذكاء الاصطناعي التوليدي</td>
+                            <td>Cloud / 3DExperience</td>
+                            <td>دعم التصميم السياقي والدردشة التقنية</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Final Slide -->
+            <section data-background="#00d4ff">
+                <h2 style="color: #000;">شكراً لكم</h2>
+                <p style="color: #222;">تم بناء هذا العرض باستخدام HTML5 + Reveal.js</p>
+                <p style="font-size: 0.7em; color: #333;">جاهز للتطبيق العملي والاستضافة الفورية</p>
+            </section>
+
+        </div>
+    </div>
+
+    <button class="pdf-ref-btn" onclick="showPdfMsg()">مرجع الـ PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            rtl: true,
+            hash: true,
+            touch: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'convex',
+            backgroundTransition: 'fade'
+        });
+
+        function toggleNode(element) {
+            const subNode = element.querySelector('.sub-nodes');
+            const isActive = subNode.classList.contains('active');
+            
+            // Close others
+            document.querySelectorAll('.sub-nodes').forEach(n => {
+                n.classList.remove('active');
+                n.parentElement.style.borderColor = '#00d4ff';
+            });
+            
+            if (!isActive) {
+                subNode.classList.add('active');
+                element.style.borderColor = '#fff';
+            }
+        }
+
+        function showPdfMsg() {
+            alert("تنبيه من ملف المرجع (Roadmap PDF):\n\nإن تفعيل ميزات Aura AI يتطلب ربط حسابك بـ 3DEXPERIENCE لضمان الخصوصية والوصول إلى قاعدة بيانات SOLIDWORKS الموثقة.");
+        }
+    </script>
+</body>
+</html>
